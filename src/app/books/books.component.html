@@ -1,0 +1,170 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="#">Logo</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/books" routerLinkActive="active" >Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/counter" routerLinkActive="active" >Counter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/user" routerLinkActive="active" >User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/posts" routerLinkActive="active" >Posts</a>
+      </li>
+    </ul>
+    <button class="btn btn-primary ms-auto" type="button" (click)="logout()">Logout</button>
+  </div>
+</nav>
+<div class="container">
+  <div class="row mb-3">
+    <div class="col">
+      <h2 class="text-center text-secondary">{{ heading }}</h2>
+    </div>
+  </div>
+
+  <hr mb-3>
+
+  <div class="row">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-header bg-dark text-white text-center">
+          User Details
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-3">
+              <label for="Fullname">Fullname:</label>
+            </div>
+            <div class="col">
+              {{userData()?.firstName}} {{userData()?.lastName}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <label for="Fullname">Email:</label>
+            </div>
+            <div class="col">
+              {{userData()?.email}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <label for="Fullname">Gender:</label>
+            </div>
+            <div class="col">
+              {{userData()?.gender}}
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-3">
+              <label for="Fullname">Username:</label>
+            </div>
+            <div class="col">
+              {{userData()?.username}}
+            </div>
+          </div>
+          <button class="btn btn-warning" (click)="getAuthUser()">User Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header bg-dark text-white text-center">
+          Book Manager
+        </div>
+        <div class="card-body">
+          <form class="mb-3" [formGroup]="bookForm" (ngSubmit)="!isEditMode ? addBook() : updateBook()">
+            <div class="row mb-3">
+              <div class="col-3">
+                <label for="title" class="form-label">Title</label>
+              </div>
+              <div class="col">
+                <input type="text" id="title" class="form-control" formControlName="title">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-3">
+                <label for="author" class="form-label">Author</label>
+              </div>
+              <div class="col">
+                <input type="text" id="author" class="form-control" formControlName="author">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-3">
+                <label for="category" class="form-label">Category</label>
+              </div>
+              <div class="col">
+                <input type="text" id="category" class="form-control" formControlName="category">
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-3"></div>
+              <div class="col">
+                <button class="btn" [ngClass]="{'btn-success': !isEditMode, 'btn-warning': isEditMode}">{{!isEditMode ?
+                  'Add Book' :'Update Book' }}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-5">
+
+      @if (books$.length == 0) {
+      <p>Books not present. Please add.</p>
+      }
+
+      @if (books$.length > 0) {
+
+      <div class="row mb-3">
+        <div class="col-3">
+          <label for="filter">Category Filter:</label>
+        </div>
+        <div class="col-4">
+          <select name="filter" id="filter" #filterControl class="form-control"
+            (change)="applyFilter(filterControl.value)">
+            @for (item of categoryList; track $index) {
+            <option [value]="item">{{item}}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div class="card" style="border: none;">
+        <div class="card-header mb-1 bg-dark text-white text-center">
+          Books List
+        </div>
+        @for (book of books$; track book.id) {
+        <div class="card mb-1">
+          <div class="card-body">
+            <div class="mb-3">
+              <strong>{{ book.title }}</strong>, <span><i>Author: {{ book.author }}</i></span>, <span><i>Category: {{
+                  book.category }}</i></span>
+            </div>
+            <div>
+              <button class="btn btn-warning" (click)="editBook(book)">Edit</button>&nbsp;&nbsp;
+              <button class="btn btn-danger" (click)="deleteBook(book.id)">Delete</button>
+            </div>
+
+          </div>
+        </div>
+        }
+
+      </div>
+      }
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <h2>Login</h2>
+
+            <div class="card">
+                <div class="card-header">
+                    User Login
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="login()">
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <label for="username">Username:</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" formControlName="username"
+                                    autocomplete="new-username">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-4">
+                                <label for="Password">Password:</label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" formControlName="password"
+                                    autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-4">
+                            </div>
+                            <div class="col-4">
+                                <button type="submit" class="btn btn-success">Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--     
+    <hr>
+
+    <div class="row mb-3">
+        <h2>Counter with NgRx Store</h2>
+
+        <div class="col-4">
+            <button class="btn btn-success" (click)="increment()">Increment</button>
+            <h3>Counter: {{counter$ | async}}</h3>
+            <button class="btn btn-warning" (click)="decrement()">Decrement</button>
+        </div>
+
+    </div>
+    <hr>
+
+    @if (loading$ | async) {
+    <div class="spinner-border"></div>
+    }
+
+    @if (!(loading$ | async)) {
+        <div class="row mb-3">
+            <h2>User Data with NgRx Store</h2>
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        User Details
+                    </div>
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-4">First Name:</div>
+                            <div class="col">{{(user$ | async)?.firstName}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Last Name:</div>
+                            <div class="col">{{(user$ | async)?.lastName}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">User Age:</div>
+                            <div class="col">{{(user$ | async)?.age}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Gender:</div>
+                            <div class="col">{{(user$ | async)?.gender}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Email:</div>
+                            <div class="col">{{(user$ | async)?.email}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Phone no:</div>
+                            <div class="col">{{(user$ | async)?.phone}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">City:</div>
+                            <div class="col">{{(user$ | async)?.address?.city}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Pin Code:</div>
+                            <div class="col">{{(user$ | async)?.address?.postalCode}}</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-4">Company:</div>
+                            <div class="col">{{(user$ | async)?.company?.name}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+ -->
+
+</div>

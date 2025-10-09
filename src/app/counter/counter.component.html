@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="#">Logo</a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/books">Books</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/counter">Counter</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/user">User</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" routerLink="/posts">Posts</a>
+      </li>
+    </ul>
+    <button class="btn btn-primary ms-auto" type="button">Logout</button>
+  </div>
+</nav>
+<div class="container">
+    <div class="row text-center">
+        <h1>Counter using NgRx Store</h1>
+        <div class="col-4">
+            <h2>Counter value: {{counter$ | async}}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-success" (click)="increment()">Increment</button> &nbsp;&nbsp;
+            <button class="btn btn-warning" (click)="decrement()">Decrement</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <h2>User Data with NgRx Store</h2>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    User Details
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-4">First Name:</div>
+                        <div class="col">{{(user$ | async)?.firstName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Last Name:</div>
+                        <div class="col">{{(user$ | async)?.lastName}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">User Age:</div>
+                        <div class="col">{{(user$ | async)?.age}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Gender:</div>
+                        <div class="col">{{(user$ | async)?.gender}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Email:</div>
+                        <div class="col">{{(user$ | async)?.email}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Phone no:</div>
+                        <div class="col">{{(user$ | async)?.phone}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">City:</div>
+                        <div class="col">{{(user$ | async)?.address?.city}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Pin Code:</div>
+                        <div class="col">{{(user$ | async)?.address?.postalCode}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4">Company:</div>
+                        <div class="col">{{(user$ | async)?.company?.name}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
