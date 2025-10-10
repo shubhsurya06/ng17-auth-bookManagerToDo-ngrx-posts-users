@@ -50,13 +50,6 @@ export class LoginComponent implements OnInit {
     console.log('login works');
     this.loading$ = this.userStore.select(selectLoading);
     this.userStore.dispatch(getUserData());
-
-    // this.authService.userRoles$.pipe(
-    //   mergeMap((res: any) => of(res)),
-    //   toArray()
-    // ).subscribe((res: any) => {
-    //   console.log('these are user roles:', res);
-    // });
   }
 
   login() {
@@ -84,7 +77,7 @@ export class LoginComponent implements OnInit {
       this.authService.saveUserData(res);
 
       // start session timeout from here
-      // this.authService.startSessionTimeout(obj.expiresInMins);
+      this.authService.startSessionTimeout(obj.expiresInMins);
 
       // reDirect user to books component after login success
       this.router.navigate(['books']);

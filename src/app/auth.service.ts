@@ -100,10 +100,7 @@ export class AuthService {
 
   startSessionTimeout(timeoutInMins: any) {
     setTimeout(() => {
-      alert('Session has been timeout!');
-
-      // this.removeToken();
-      // this.removeRefreshToken();
+      alert('Session has been timeout!')
     }, timeoutInMins * 60000 );
   }
 
