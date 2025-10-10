@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+    
+    <div class="card text-center mb-3" style="width:300px">
+        <div class="row">
+            <div class="col-1">
+                <button class="btn btn-primary" (click)="increment()">+</button>
+            </div>
+            <div class="col-10">
+                Counter Value: {{counter$ | async}}
+            </div>
+            <div class="col-1">
+                <button class="btn btn-warning" (click)="decrement()">-</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+
+        @if (loadingSignal()) {
+            <div class="spinner-border"></div>
+        }
+
+        @if (!loadingSignal()) {
+            @for (recipe of recipeSignal(); track $index) {
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-header">
+                            {{recipe.name}}
+                        </div>
+                        <div class="card-body">
+                            <img [src]="recipe.image" class="img-fluid" width="300" alt="">
+                            <p><strong>Prepared in:</strong> {{recipe.prepTimeMinutes}} </p>
+                            <p><strong>Cooking Time:</strong> {{recipe.cookTimeMinutes}}</p>
+                            <strong>Instructions:</strong>
+                            <ul>
+                                @for (ins of recipe.instructions; track $index) {
+                                    {{ins}}
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

@@ -1,11 +1,10 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 
-import { Store, select } from "@ngrx/store";
-import { IAppState, IUser } from '../store/store'; 
+import { Store } from "@ngrx/store";
+import { IAppState } from '../store/store'; 
 import { increment, decrement } from "../store/counter.action";
 import { Observable } from 'rxjs';
-import { selectLoading, selectUser } from '../store/user.selector';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 
@@ -22,12 +21,6 @@ export class CounterComponent implements OnInit {
 
   // counter store
   store = inject(Store<IAppState>);
-
-  // user store
-  userStore = inject(Store<IUser>);
-
-  user$ = this.userStore.select(selectUser);
-  loading$ = this.userStore.select(selectLoading);
 
   ngOnInit(): void {
     this.counter$ = this.store.select('count');

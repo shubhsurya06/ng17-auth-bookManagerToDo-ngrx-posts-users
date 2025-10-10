@@ -8,6 +8,7 @@ import { EditorComponent } from './editor/editor.component';
 import { CounterComponent } from './counter/counter.component';
 import { UserComponent } from './user/user.component';
 import { PostsComponent } from './posts/posts.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ export const routes: Routes = [
     { path: 'counter', component: CounterComponent, title: 'Counter' },
     { path: 'user', component: UserComponent, title: 'User data using NgRx' },
     { path: 'posts', component: PostsComponent, title: 'Posts using NgRx' },
+    { path: 'recipes', component: RecipesComponent, title: 'Recipes using NgRx' },
     { path: 'books', component: BooksComponent, title: 'Book Manager', canActivate: [authGuard] },
     { path: 'admin', component: AdminComponent, title: 'Admin Panel', canActivate: [roleGuard], data: {role: 'admin'} },
     { path: 'editor', component: EditorComponent, title: 'Editor Panel', canActivate: [roleGuard], data: {role: 'moderator'} },
