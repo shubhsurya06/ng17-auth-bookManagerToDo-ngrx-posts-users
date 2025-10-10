@@ -1,0 +1,55 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <div class="card">
+                <div class="card-header">
+                    Add/Update Tasks
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="taskForm" (ngSubmit)="addEditTasks()" autocomplete="off" no-validate>
+                        <div class="row mb-3">
+                            <div class="col-2">Task:</div>
+                            <div class="col">
+                                <input type="text" class="form-control" formControlName="task" autocomplete="task">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2"></div>
+                            <div class="col">
+                                <button class="btn" [class]="{'btn-warning': isEdit, 'btn-success': !isEdit}"
+                                    (click)="addEditTasks()">{{isEdit ? 'Update' : 'Add' }}</button>&nbsp;&nbsp;&nbsp;
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            @if (!tasks$.length) {
+            <p>Tasks not present. Please add first.</p>
+            }
+
+            @if (tasks$.length) {
+            @for (task of tasks$; track task.id) {
+            <div class="card mb-1" [appBackground]="'lightgreen'" [isCompleted]="!task.isCompleted">
+                <div class="card-body" style="display: flex; justify-content: space-between;">
+                    <div>
+                        <input class="form-check-input" type="checkbox" name="option1" [checked]="task.isCompleted" (change)="taskCompleted(task)">
+                        &nbsp;
+                        <span [class]="{'strike' : task.isCompleted}">{{task.task}}</span>
+                    </div>
+
+                    <div class="div">
+                        <button class="btn btn-primary" (click)="edit(task)" [disabled]="task.isCompleted">Edit</button>
+                        <button class="btn btn-danger" (click)="delete(task)" [disabled]="task.isCompleted">Delete</button>
+                    </div>
+                </div>
+            </div>
+            }
+            }
+        </div>
+    </div>
+</div>
