@@ -6,11 +6,12 @@ import { NgClass } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { User } from '../user';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-books',
   standalone: true,
-  imports: [ReactiveFormsModule, NgClass, RouterLinkActive, RouterLink],
+  imports: [ReactiveFormsModule, NgClass, RouterLinkActive, RouterLink, HeaderComponent],
   templateUrl: './books.component.html',
   styleUrl: './books.component.scss'
 })

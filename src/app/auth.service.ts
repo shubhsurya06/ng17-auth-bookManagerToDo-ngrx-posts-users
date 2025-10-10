@@ -115,4 +115,9 @@ export class AuthService {
     return this.http.post(this.apiUrl + 'auth/refresh', obj);
   }
 
+  logout() {
+    localStorage.removeItem(this.token);
+    localStorage.removeItem(this.refreshToken);
+    localStorage.removeItem(this.userData);
+  }
 }

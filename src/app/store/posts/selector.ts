@@ -1,6 +1,5 @@
 import { createSelector, createFeatureSelector } from "@ngrx/store";
 import { IPostsState } from "./reducer";
-import { IPosts } from "./model";
 
 export const PostsSelector = createFeatureSelector<IPostsState>('posts');
 
