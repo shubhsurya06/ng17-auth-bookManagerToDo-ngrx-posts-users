@@ -5,7 +5,7 @@ import { IPosts } from './model';
 // this is default state of post data
 export interface IPostsState {
     posts: IPosts[],
-    loading: Boolean
+    loading: boolean
 }
 
 export const initialPostsState: IPostsState = {
@@ -18,7 +18,7 @@ export const postsReducer = createReducer(
     initialPostsState,
 
     // load initial posts and call getPosts Action from here to load posts data from API
-    on(getPosts, (state) => ({
+    on(getPosts, state => ({
         ...state,
         loading: true
     })),
@@ -26,7 +26,7 @@ export const postsReducer = createReducer(
     // successfull load posts from here by calling action here
     on(loadPostsSuccess, (state, {posts}) => ({
         ...state,
-        posts: Array.isArray(posts) ? posts : [],
+        posts: posts,
         loading: false
     }))
 

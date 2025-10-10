@@ -7,15 +7,16 @@ import { increment, decrement } from "../store/counter.action";
 import { Observable } from 'rxjs';
 import { selectLoading, selectUser } from '../store/user.selector';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, RouterLinkActive],
+  imports: [AsyncPipe, RouterLink, RouterLinkActive, HeaderComponent],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.scss'
 })
-export class CounterComponent {
+export class CounterComponent implements OnInit {
 
   counter$!: Observable<number>;
 

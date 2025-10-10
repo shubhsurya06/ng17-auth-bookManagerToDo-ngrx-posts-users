@@ -6,11 +6,12 @@ import { getUserData } from '../store/user.action';
 import { selectUser, selectLoading } from '../store/user.selector';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [AsyncPipe, RouterLink, RouterLinkActive],
+  imports: [AsyncPipe, RouterLink, RouterLinkActive, HeaderComponent],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss'
 })
@@ -20,7 +21,7 @@ export class UserComponent implements OnInit {
   store = inject(Store<IUser>);
 
   user$ = this.store.select(selectUser);
-  loading$!: Observable<Boolean>;
+  loading$!: Observable<boolean>;
 
   constructor() {
     this.loading$ = this.store.select(selectLoading);
