@@ -1,4 +1,4 @@
-# ng17
+# ng17 - auth - TODO bookManager - POSTS/USERS using NgRx
 
 A small Angular (standalone components + NgRx) demo project that includes:
 
