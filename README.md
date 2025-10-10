@@ -1,4 +1,4 @@
-# ng19-office
+# ng17
 
 A small Angular (standalone components + NgRx) demo project that includes:
 
