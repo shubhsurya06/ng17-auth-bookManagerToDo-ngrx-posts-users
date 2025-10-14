@@ -10,10 +10,12 @@ import { UserComponent } from './user/user.component';
 import { PostsComponent } from './posts/posts.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { TasksComponent } from './tasks/tasks.component';
+import { SignalComponent } from './signal/signal.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent, title: 'Login' },
+    { path: 'signal', component: SignalComponent, title: 'Signal' },
     { path: 'counter', component: CounterComponent, title: 'Counter', canActivate: [authGuard] },
     { path: 'user', component: UserComponent, title: 'User data using NgRx', canActivate: [authGuard] },
     { path: 'posts', component: PostsComponent, title: 'Posts using NgRx', canActivate: [authGuard] },

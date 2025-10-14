@@ -1,0 +1,41 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h2 class="text-center text-secondary">Signals API</h2>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Writable Signal</h3>
+                </div>
+                <div class="card-body">
+
+                    <p>FirstName: {{firstName()}}</p>
+
+                    <p>Last Name: {{lastName()}}</p>
+
+                    <p>Fullname: {{fullName()}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Computed Signal</h2>
+                </div>
+                <div class="card-body">
+                    <p>Value of a: {{a()}}</p>
+                    <p>Value of b: {{b()}}</p>
+                    <p>Value of c (Addition of a & b): {{c()}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+</div>
