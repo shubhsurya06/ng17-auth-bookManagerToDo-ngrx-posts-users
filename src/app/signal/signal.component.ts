@@ -15,8 +15,11 @@ export class SignalComponent implements OnInit {
   lastName = signal<string>('Suryawanshi');
 
   // basic computed signals
-  a = signal<number>(10);
-  b = signal<number>(20);
+  a = signal<number>(0);
+  b = signal<number>(0);
+
+  // loader
+  loader = signal<boolean>(true);
 
   // computed signal that derives from `a` and `b`
   c = computed(() => this.a() + this.b());
@@ -26,11 +29,12 @@ export class SignalComponent implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
+      this.loader.set(false);
       // update writable signals to demonstrate recomputation
-      this.firstName.set('Shubham Updated');
-      this.lastName.set('Suryawanshi Updated');
+      // this.firstName.set('Shubham Updated');
+      // this.lastName.set('Suryawanshi Updated');
 
-      // change a and b to show computed `c` updates automatically
+      // change a and b   to show computed `c` updates automatically
       this.a.set(15);
       this.b.set(25);
 
