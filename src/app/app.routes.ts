@@ -11,6 +11,7 @@ import { PostsComponent } from './posts/posts.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { SignalComponent } from './signal/signal.component';
+import { TodoComponent } from './todo/todo.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,7 +22,8 @@ export const routes: Routes = [
     { path: 'posts', component: PostsComponent, title: 'Posts using NgRx', canActivate: [authGuard] },
     { path: 'recipes', component: RecipesComponent, title: 'Recipes using NgRx', canActivate: [authGuard] },
     { path: 'books', component: BooksComponent, title: 'Book Manager', canActivate: [authGuard] },
-    { path: 'tasks', component: TasksComponent, title: 'Tasks TODO | NgRx Store', canActivate: [authGuard] },
+    { path: 'tasks', component: TasksComponent, title: 'Tasks', canActivate: [authGuard] },
+    { path: 'todo-ngrx', component: TodoComponent, title: 'ToDo | NgRx Store', canActivate: [authGuard] },
     { path: 'admin', component: AdminComponent, title: 'Admin Panel', canActivate: [roleGuard], data: {role: 'admin'} },
     { path: 'editor', component: EditorComponent, title: 'Editor Panel', canActivate: [roleGuard], data: {role: 'moderator'} },
 ];
