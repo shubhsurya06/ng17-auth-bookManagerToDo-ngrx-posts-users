@@ -22,6 +22,7 @@ export class TodoEffects {
         )
     )
 
+    // add to do success
     addTodo$ = createEffect(() =>
         this.actions.pipe(
             ofType(TodoActions.addToDo),
@@ -33,6 +34,7 @@ export class TodoEffects {
         )
     )
 
+    // edit to do success
     editTodoSuccess$ = createEffect(() =>
         this.actions.pipe(
             ofType(TodoActions.editToDo),
@@ -44,6 +46,7 @@ export class TodoEffects {
         )
     )
 
+    // delete to do success
     deleteTodoSuccess$ = createEffect(() => 
         this.actions.pipe(
             ofType(TodoActions.removeToDo),
