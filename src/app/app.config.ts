@@ -16,11 +16,12 @@ import { RecipesEffect } from './store/recipes/effects';
 import { recipesReducer } from './store/recipes/reducer';
 import { TodoEffects } from './todo/store/effects';
 import { todoReducer } from './todo/store/reducers';
+import { errorInterceptor } from './interceptor/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptors([authInterceptor, loggingInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor, loggingInterceptor, errorInterceptor])),
     provideStore({
       count: CounterReducer,
       user: userReducer,
