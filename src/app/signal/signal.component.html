@@ -48,4 +48,19 @@
         <div class="col"></div>
     </div>
 
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-primary" (click)="changeFName()">Change fName</button>
+        </div>
+        <hr>
+        <div class="col4">
+            <h3>User Info using objects</h3>
+            <p>First name: {{userObj()?.firstName}}</p>
+            <p>Last name: {{userObj()?.lastName}}</p>
+            <p>Age: {{userObj()?.age}}</p>
+            <p>City: {{userObj()?.city}}</p>
+
+        </div>
+    </div>
+
 </div>
