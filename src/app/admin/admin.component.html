@@ -1,1 +1,50 @@
-<p>admin works!</p>
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>View Child</strong> in Admin Component</h3>
+                    <small>(in Same Component)</small>
+                </div>
+                <div class="card-body">
+                    <p>Admin component works!</p>
+                    <input type="text" class="form-control" placeholder="Enter anything" #myInputValue>&nbsp;
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" (click)="getValue()">Get Value</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>View Child</strong> with Other Components</h3>
+                    <small>Child component or any other same level component</small>
+                </div>
+                <div class="card-body">
+                    <app-alert [alertTitle]="'Title coming from admin-component'"></app-alert>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3><strong>Content Child</strong> with Other Components</h3>
+                    <small>Child component or any other same level component</small>
+                </div>
+                <div class="card-body">
+                    <app-alert>
+                        <!-- <i class="fa fa-user" #contentChildData>
+                            Paragraph data coming from parent using Content Child
+                        </i> -->
+                        <h5>Content coming from parent</h5>
+                    </app-alert>
+                </div>
+                <!-- <div class="card-footer">
+                    <button class="btn btn-success" (click)="setContentChild()">Content Child</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
