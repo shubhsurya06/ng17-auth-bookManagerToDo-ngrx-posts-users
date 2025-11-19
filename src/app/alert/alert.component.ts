@@ -11,13 +11,17 @@ export class AlertComponent {
 
   @Input() alertTitle: string = '';
 
-  @ContentChild('contentChildData') contentChildData!: ElementRef;
+  // @ContentChild('contentChildData') contentChildData!: ElementRef;
 
   getContentChildValue() {
-    debugger;
-    const text = this.contentChildData.nativeElement.innerText;
-    console.log('Content child data:', text);
-    this.alertTitle = text;
+    // debugger;
+    // const text = this.contentChildData.nativeElement.innerText;
+    // console.log('Content child data:', text);
+    // this.alertTitle = text;
+  }
+
+  callChildMethod() {
+    console.log('Child method called from parent');
   }
 
 }
