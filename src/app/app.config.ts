@@ -17,6 +17,8 @@ import { recipesReducer } from './store/recipes/reducer';
 import { TodoEffects } from './todo/store/effects';
 import { todoReducer } from './todo/store/reducers';
 import { errorInterceptor } from './interceptor/error.interceptor';
+import { QuotesReducer } from './store/own-posts/quotes-reducer';
+import { QuoteEffects } from './store/own-posts/quotes-effects';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,8 +29,9 @@ export const appConfig: ApplicationConfig = {
       user: userReducer,
       posts: postsReducer,
       recipes: recipesReducer,
-      todoList: todoReducer
+      todoList: todoReducer,
+      quotes: QuotesReducer
     }),
-    provideEffects([UserEffects, PostsEffects, RecipesEffect, TodoEffects])
+    provideEffects([UserEffects, PostsEffects, RecipesEffect, TodoEffects, QuoteEffects])
   ]
 };

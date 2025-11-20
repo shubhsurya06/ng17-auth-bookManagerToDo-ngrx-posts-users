@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<div>
+    <h2>Quotes</h2>
+    
+    <button (click)="loadQuotes()">Load Quotes</button>
+
+    @if ($error | async; as error) {
+        <div style="color: red; margin: 10px 0;">
+            <strong>Error:</strong> {{error}}
+        </div>
+    }
+
+    @if ($quoteLoader | async) {
+        <h3>Loading quotes data...</h3>
+    } 
+    @else {
+        <ul>
+            @for (quote of $quotes | async; track quote.id ) {
+                <li style="margin-bottom: 10px;">
+                    <span>{{quote.quote}}</span> <br>
+                    <strong>- {{quote.author}}</strong>
+                </li>
+            }
+        </ul>
+    }
+</div>
