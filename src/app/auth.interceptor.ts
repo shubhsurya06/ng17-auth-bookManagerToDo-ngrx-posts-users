@@ -20,6 +20,9 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     }
   })
 
+  return next(req);
+
+  /*
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       console.log('auth interceptor error:', error);
@@ -54,4 +57,5 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
       return throwError(() => error);
     })
   );
+  */
 };
