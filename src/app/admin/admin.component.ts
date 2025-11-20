@@ -13,14 +13,17 @@ export class AdminComponent {
 
   @ViewChild('myInputValue') myInputValue!: ElementRef;
 
-  @ViewChild(AlertComponent) alertComponent!: AlertComponent;
+  // @ContentChild('AlertComponent') alertComponent!: AlertComponent;
 
   // get input value on button click using VIEW_CHILD
   getValue() {
-    // debugger;
+    debugger;
     console.log('My Input value:' ), this.myInputValue.nativeElement.value;
+  }
 
-    this.alertComponent.callChildMethod();
+  setContentChild() {
+    debugger;
+    
   }
 
 }
