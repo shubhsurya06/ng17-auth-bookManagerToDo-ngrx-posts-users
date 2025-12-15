@@ -14,4 +14,26 @@
             <button class="btn btn-warning" (click)="decrement()">Decrement</button>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-md6">
+            <form [formGroup]="myNewForm" (ngSubmit)="getFormData()">
+                <div class="row">
+                    <div class="col-md4">
+                        <input type="text" formControlName="skills"> &nbsp;&nbsp;<button (click)="addSkill()">Add Skill</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md4">
+                        <div formArrayName="skillArray">
+                            @for (skillGroup of skillList.controls; track $index) {
+                                <input [formControlName]="$index" placeholder="Skill Name">
+                            }
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-success" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>

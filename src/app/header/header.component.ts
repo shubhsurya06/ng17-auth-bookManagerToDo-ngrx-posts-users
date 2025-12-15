@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../auth.service';
 
@@ -7,7 +7,8 @@ import { AuthService } from '../auth.service';
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HeaderComponent {
   authService = inject(AuthService);

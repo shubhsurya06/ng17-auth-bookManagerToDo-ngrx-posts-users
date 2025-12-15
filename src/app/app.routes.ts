@@ -27,5 +27,5 @@ export const routes: Routes = [
     { path: 'todo-ngrx', component: TodoComponent, title: 'ToDo | NgRx Store', canActivate: [authGuard] },
     { path: 'admin', component: AdminComponent, title: 'Admin Panel', canActivate: [roleGuard], data: {role: 'admin'} },
     { path: 'editor', component: EditorComponent, title: 'Editor Panel', canActivate: [roleGuard], data: {role: 'moderator'} },
-    { path: 'quotes', component: OwnPostsComponent, title: 'Own Posts', canActivate: [authGuard] }
+    { path: 'quotes', component: OwnPostsComponent, title: 'Own Posts' }
 ];

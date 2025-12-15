@@ -1,13 +1,15 @@
-import { Component, ViewChild, ElementRef, ContentChild } from '@angular/core';
+import { Component, ViewChild, ElementRef, ContentChild, ViewEncapsulation } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { AlertComponent } from '../alert/alert.component';
+import { ButtonComponent } from '../reusable-component/button/button.component';
 
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [HeaderComponent, AlertComponent],
+  imports: [HeaderComponent, AlertComponent, ButtonComponent],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.scss'
+  styleUrl: './admin.component.scss',
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class AdminComponent {
 
